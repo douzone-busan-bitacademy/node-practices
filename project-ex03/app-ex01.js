@@ -1,9 +1,10 @@
 /**
- * douzone-busan-math npm 모듈 테스트(모듈 패키지: 로컬 배포)
+ * douzone-busan-math npm 모듈 테스트(모듈 패키지: 원격 레지스트리 배포)
  *
- * npm i ../douzone-busan-math
+ * npm i douzone-busan-math
  * 명령으로 설치 후, 테스트 할 것
  */
+
 const dzMath = require('douzone-busan-math');
 
 console.log(dzMath.sum(1, 2, 3, 4));

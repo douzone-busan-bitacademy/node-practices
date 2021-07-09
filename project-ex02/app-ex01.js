@@ -1,5 +1,5 @@
 /**
- * douzone-busan-math.js 파일 모듈 테스트
+ * douzone-busan-math 파일 모듈 테스트
  */
 
 const dzMath = require('../douzone-busan-math/douzone-busan-math');
