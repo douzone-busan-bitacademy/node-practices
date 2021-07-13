@@ -104,8 +104,38 @@ package.json 스크립트 수정
 [emaillist01] mkdir controllers
 [emaillist01] mkdir models
 [emaillist01] mkdir views
+[emaillist01] mkdir public
 
 
+=======================================================
+guestbook01 (model based mysql) - 기본 sql 기반
+guestbook02 (model based Sequelize) - ORM
+
+[guestbook01] npm init -y
+
+[guestbook01] npm i express
+[guestbook01] npm i ejs
+[guestbook01] npm i mysql
+[guestbook01] npm i -D nodemon
+
+package.json 스크립트 수정
+  "scripts": {
+    "start": "node index.js",
+    "debug": "nodemon index.js"
+  }
+
+[guestbook01] npm start     (운용시...) 
+[guestbook01] npm run debug (개발시...Live Update)
+
+[guestbook01] mkdir routes
+[guestbook01] mkdir controllers
+[guestbook01] mkdir models
+[guestbook01] mkdir views
+[emaillist01] mkdir public
+
+index.js 작성
+
+=======================================================
 
 
 
