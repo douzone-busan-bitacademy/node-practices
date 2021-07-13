@@ -10,8 +10,8 @@ module.exports = {
     form: function(req, res) {
         res.render('form');
     },
-    add: function(req, res) {
-        console.log(req.body);
+    add: async function(req, res) {
+        const results = await model.insert(req.body);
         res.redirect("/");
     }
 }
