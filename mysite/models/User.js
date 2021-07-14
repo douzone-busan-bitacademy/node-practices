@@ -37,10 +37,10 @@ module.exports = function(sequelize){
     }, {
         underscored: true,
         freezeTableName: true,
-        timestamp: true,
-        createAt: false,
-        updateAt: false,
-        tablename: 'user'
+        timestamps: true,
+        createdAt: false,
+        updatedAt: false,
+        tableName: 'user'
     });
 }
 
