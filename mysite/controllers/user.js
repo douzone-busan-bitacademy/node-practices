@@ -4,10 +4,10 @@ module.exports = {
     joinsuccess: function(req, res) {
         res.render('user/joinsuccess');
     },
-    joinform: function(req, res) {
-        res.render('user/joinform');
+    join: function(req, res) {
+        res.render('user/join');
     },
-    join: async function(req, res) {
+    _join: async function(req, res) {
         const result = await models.User.create({
             name: req.body.name,
             email: req.body.email,
@@ -17,10 +17,10 @@ module.exports = {
         console.log(result);
         res.redirect('/user/joinsuccess');
     },
-    loginform: function(req, res) {
-        res.render('user/loginform');
+    login: function(req, res) {
+        res.render('user/login');
     },
-    login: async function(req, res) {
+    _login: async function(req, res) {
         const user = await models.User.findOne({
             attributes: ['no', 'name', 'role'],
             where: {
@@ -30,11 +30,22 @@ module.exports = {
         });
         
         if(user == null){
-            res.render('user/loginform', {
-                result: "fail"
-            });
+            res.render('user/loginform', Object.assign(req.body, {
+                result: 'fail',
+                password: ''    
+            }));
+            return;
         }
 
+        // 로그인 처리
+        req.session.authUser = user;
         res.redirect('/');
     },
+    logout: async function(req, res){
+        await req.session.destroy();
+        res.redirect("/");
+    },
+    update: function(req, res) {
+        res.send("update form");
+    }
 }
