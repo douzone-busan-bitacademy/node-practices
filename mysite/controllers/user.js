@@ -20,8 +20,12 @@ module.exports = {
             next(e);
         }   
     },
-    login: function(req, res){
-        res.render('user/login');
+    login: function(req, res, next){
+        try {
+            res.render('user/login');
+        } catch(e) {
+            next(e);
+        }
     },    
     _login: async function(req, res, next) {
         try {        
