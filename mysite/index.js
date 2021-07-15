@@ -15,7 +15,6 @@ const guestbookRouter = require('./routes/guestbook');
 // Logging
 const logger = require('./logging');
 
-
 // Application Setup
 const application = express()
     // 1. static serve 
@@ -41,7 +40,20 @@ const application = express()
     .use('/', mainRouter)
     .use('/user', userRouter)
     .use('/guestbook', guestbookRouter)
-    .use((req, res) => res.render('error/404'));
+    // 404 error
+    .use(function(req, res){
+        res.status(404).render('error/404')
+    })
+    // 500 error
+    .use(function(err, req, res, next){
+        // 로깅처리
+        // err.name, err.message, err.stack
+        logger.error(err.stack);
+
+        // 사과페이지
+        // res.status(500).render('error/500');
+        res.status(500).send(`<pre>${err.stack}</pre>`);
+    });
 
 // Server Setup    
 http.createServer(application)
