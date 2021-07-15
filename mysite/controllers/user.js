@@ -76,7 +76,7 @@ module.exports = {
     _update: async function(req, res, next) {
         try {
             const {[req.body.password == '' ? 'password' : '']: remove, ...updateObject} = req.body;
-            await models.User.update(updateObject, {
+            await models.User.updat(updateObject, {
                 where: {
                     no: req.session.authUser.no    
                 }
