@@ -36,15 +36,19 @@ module.exports = {
         }       
     },
     delete: async function(req, res, next) {
+        console.log(Object.keys(req.body));
+        console.log(
+            Object.keys(req.body).map(k => ({k: req.body[k]}))
+        )
         try {
             const result = await models.Guestbook.destroy({
                 where: {
-                    [Op.and]: req.body
+                    [Op.and]: [{no: req.params.no}, {password: req.body.password}]
                 }
             });
             res.send({
                 result: 'success',
-                data: req.body.no,
+                data: req.params.no,
                 message: null
             });
         } catch(err){
