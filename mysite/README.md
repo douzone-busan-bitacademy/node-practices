@@ -11,6 +11,7 @@ $ npm i ejs
 $ npm i dotenv
 $ npm i sequelize
 $ npm i mysql2
+$ npm i multer
 $ npm i moment
 $ npm i winston
 $ npm i winston-daily-rotate-file
@@ -42,7 +43,10 @@ $ npm i -D nodemon
     |--- /config
     |--- /loggin
     |--- /logs
+    |--- /multer-temporary-store
     |--- /public
+    |       |--- /assets
+    |                |--- gallery 
     |--- /routes
     |--- /controllers
     |--- /models
