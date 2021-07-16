@@ -5,8 +5,16 @@ const models = require('../models');
 
 module.exports = {
     index: async function(req, res, next) {
-        try { 
-            res.render('gallery/index');
+        try {
+            const results = await models.Gallery.findAll({
+                atrributes: ['no', 'url', 'comment'],
+                order:[
+                    ['no', 'desc']
+                ]
+            }); 
+            res.render('gallery/index', {
+                galleries: results
+            });
         } catch(err) {
             next(err);
         }         
@@ -31,5 +39,18 @@ module.exports = {
         } catch(err) {
             next(err);
         }         
+    },
+    delete: async function(req, res, next) {
+        try {
+            const result = await models.Gallery.destroy({
+                where: {
+                    no: req.params.no
+                }
+            });
+
+            res.redirect("/gallery");     
+        } catch(err) {
+            next(err);
+        }
     }
 }
