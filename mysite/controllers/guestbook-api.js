@@ -2,42 +2,53 @@ const models = require('../models');
 const { Op } = require("sequelize");
 
 module.exports = {
-    create: async function(req, res, next) {   
-        const result = await models.Guestbook.create(req.body);
-        res.send({
-            result: 'success',
-            data: result,
-            message: null
-        });
+    create: async function(req, res, next) {
+        try {   
+            const result = await models.Guestbook.create(req.body);
+            res.send({
+                result: 'success',
+                data: result,
+                message: null
+            });
+        } catch(err){
+            next(err);
+        }
     },
     read: async function(req, res, next) {
-        const startNo = req.query.sno || 0;
-        const results = await models.Guestbook.findAll({
-            attributes: ['no', 'name', 'message'],
-            where: (startNo > 0) ? {no: {[Op.lt]: startNo}} : {},
-            order: [
-                ['no', 'desc']
-            ],
-            limit: 3
-        });
+        try {
+            const startNo = req.query.sno || 0;
+            const results = await models.Guestbook.findAll({
+                attributes: ['no', 'name', 'message'],
+                where: (startNo > 0) ? {no: {[Op.lt]: startNo}} : {},
+                order: [
+                    ['no', 'desc']
+                ],
+                limit: 3
+            });
 
-        res.send({
-            result: 'success',
-            data: results,
-            message: null
-        });
+            res.send({
+                result: 'success',
+                data: results,
+                message: null
+            });
+        } catch(err){
+          next(err);
+        }       
     },
     delete: async function(req, res, next) {
-        const no = req.params.no || 0;
-        const result = await models.Guestbook.destroy({
-            where: {
-                no: no
-            }
-        });
-        res.send({
-            result: 'success',
-            data: no,
-            message: null
-        });       
-    }
+        try {
+            const result = await models.Guestbook.destroy({
+                where: {
+                    [Op.and]: req.body
+                }
+            });
+            res.send({
+                result: 'success',
+                data: req.body.no,
+                message: null
+            });
+        } catch(err){
+            next(err);
+        }
+    }  
 }
