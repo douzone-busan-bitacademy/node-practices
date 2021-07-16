@@ -36,10 +36,6 @@ module.exports = {
         }       
     },
     delete: async function(req, res, next) {
-        console.log(Object.keys(req.body));
-        console.log(
-            Object.keys(req.body).map(k => ({k: req.body[k]}))
-        )
         try {
             const result = await models.Guestbook.destroy({
                 where: {
