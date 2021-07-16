@@ -18,6 +18,9 @@ module.exports = {
             next(e);
         }         
     },
+    spalanding: function(req, res, next){
+        res.render('guestbook/spa-landing');
+    },    
     delete: function(req, res) {
         res.render('guestbook/delete');
     },
