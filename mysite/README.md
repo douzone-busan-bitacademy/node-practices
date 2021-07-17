@@ -1,6 +1,7 @@
-# MySite on Node(Express)
+# mysite Powered by Node(Express)
 
 ## 설치 패키지
+```bash
 $ npm i express
 $ npm i express-session
 $ npm i serve-favicon
@@ -13,16 +14,18 @@ $ npm i multer
 $ npm i winston
 $ npm i winston-daily-rotate-file
 
+$ npm i -D mocha
 $ npm i -D nodemon
-
+```
 
 ## scripts in package.json
 ```JSON
 .
 .
   "scripts": {
-    "debug": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "npx mocha",
+    "debug": "nodemon index.js"
   }
 .
 .
@@ -35,19 +38,29 @@ $ npm i -D nodemon
     |--- index.js
     |--- package.json
     |--- package-lock.json
+    |--- [node_modules]
     |--- config
     |--- public
+    |       |--- assets
+    |               |--- js
+    |               |--- css
+    |               |--- images
+    |               |--- [upload-images]
     |--- logging
+    |--- [logs]
+    |       |--- [error]
+    |--- [multer-temporary-store]
     |--- routes
     |--- controllers
+    |       |--- admin
     |--- models
     |--- views
             |--- main
             |--- admin
+            |       |--- includes
             |--- user
             |--- board
             |--- guestbook
             |--- gallery
-
-
+            |--- includes
 </pre>
