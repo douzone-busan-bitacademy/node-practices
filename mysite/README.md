@@ -1,37 +1,33 @@
-# MySite on Node(Express)~
+# MySite on Node(Express)
 
-## project manifest 파일(package.json) 생성
-$ npm init -y
-
-## 설치패키지
-```bash
+## 설치 패키지
 $ npm i express
 $ npm i express-session
+$ npm i serve-favicon
 $ npm i ejs
-$ npm i dotenv
+$ npm i moment
 $ npm i sequelize
 $ npm i mysql2
+$ npm i dotenv
 $ npm i multer
-$ npm i moment
 $ npm i winston
 $ npm i winston-daily-rotate-file
+
 $ npm i -D nodemon
 
-```
 
 ## scripts in package.json
 ```JSON
 .
 .
-.
   "scripts": {
-    "start": "node index.js",
-    "debug": "nodemon index.js"
-  },
+    "debug": "nodemon index.js",
+    "start": "node index.js"
+  }
 .
 .
-.  
 ```
+
 
 ## project structure
 <pre>
@@ -39,22 +35,19 @@ $ npm i -D nodemon
     |--- index.js
     |--- package.json
     |--- package-lock.json
-    |--- /node-modules
-    |--- /config
-    |--- /loggin
-    |--- /logs
-    |--- /multer-temporary-store
-    |--- /public
-    |       |--- /assets
-    |                |--- gallery 
-    |--- /routes
-    |--- /controllers
-    |--- /models
-    |--- /views
-            |--- /main
-            |--- /user
-            |--- /guestbook
-            |--- /board
-            |--- /gallery
-            |--- /admin
+    |--- config
+    |--- public
+    |--- logging
+    |--- routes
+    |--- controllers
+    |--- models
+    |--- views
+            |--- main
+            |--- admin
+            |--- user
+            |--- board
+            |--- guestbook
+            |--- gallery
+
+
 </pre>

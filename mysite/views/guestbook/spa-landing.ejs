@@ -25,16 +25,16 @@
 		var messageBox = function(title, message, callback){
 			$("#dialog-message p").text(message);
 			$("#dialog-message")
-					.attr("title", title)
-					.dialog({
-						modal: true,
-						buttons: {
-							"확인": function() {
-								$(this).dialog( "close" );
-							}
-						},
-						close: callback
-					});
+				.attr("title", title)
+				.dialog({
+					modal: true,
+					buttons: {
+						"확인": function() {
+							$(this).dialog( "close" );
+						}
+					},
+					close: callback
+				});
 		}
 
 		var fetchList = function(){
