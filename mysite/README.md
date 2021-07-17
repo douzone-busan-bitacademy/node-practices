@@ -1,4 +1,4 @@
-# MySite on Node(Express)
+# MySite on Node(Express)~
 
 ## project manifest 파일(package.json) 생성
 $ npm init -y
