@@ -36,24 +36,6 @@ module.exports = {
         }       
     },
     delete: async function(req, res, next) {
-<<<<<<< HEAD
-        const no = req.params.no || 0;
-        const result = await models.Guestbook.destroy({
-            where: {
-                [Op.and]: {
-                    no: no,
-                    password: req.body.password
-                }
-            }
-        });
-        res.send({
-            result: 'success',
-            data: no,
-            message: null
-        });       
-    }
-}
-=======
         try {
             const result = await models.Guestbook.destroy({
                 where: {
@@ -70,4 +52,3 @@ module.exports = {
         }
     }  
 }
->>>>>>> 7ae7cb150cf83a03f8e4282162ba77d8d2b949ae

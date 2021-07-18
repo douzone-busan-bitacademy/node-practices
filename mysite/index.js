@@ -1,6 +1,5 @@
 (function(){
     const express = require('express');
-    const favicon = require('serve-favicon');
     const session = require('express-session');
     const multer = require('multer');
     const http = require('http');
