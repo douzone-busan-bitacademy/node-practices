@@ -14,7 +14,7 @@ module.exports = {
                 guestbooks: results,
                 moment: moment
             });
-        } catch(e) {
+        } catch(e) { 
             next(e);
         }         
     },

@@ -31,7 +31,10 @@ module.exports = {
         const no = req.params.no || 0;
         const result = await models.Guestbook.destroy({
             where: {
-                no: no
+                [Op.and]: {
+                    no: no,
+                    password: req.body.password
+                }
             }
         });
         res.send({
