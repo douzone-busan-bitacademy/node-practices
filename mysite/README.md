@@ -15,6 +15,7 @@ $ npm i winston
 $ npm i winston-daily-rotate-file
 
 $ npm i -D mocha
+$ npm i -D chai
 $ npm i -D nodemon
 ```
 
@@ -39,6 +40,11 @@ $ npm i -D nodemon
     |--- package.json
     |--- package-lock.json
     |--- [node_modules]
+    |--- test
+    |--- logging
+    |--- [logs]
+    |       |--- [error]
+    |--- [multer-temporary-store]
     |--- config
     |--- public
     |       |--- assets
@@ -46,10 +52,6 @@ $ npm i -D nodemon
     |               |--- css
     |               |--- images
     |               |--- [upload-images]
-    |--- logging
-    |--- [logs]
-    |       |--- [error]
-    |--- [multer-temporary-store]
     |--- routes
     |--- controllers
     |       |--- admin
