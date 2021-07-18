@@ -5,15 +5,15 @@ const controller = require('../controllers/user-api');
 const router = express.Router();
 router.route('/checkemail').get(controller.checkemail);
 
-router.route('/needauth').get(authorized, function(res, req){
+router.route('/needauth').get(authorized, function(req, res){
     res.send({
         result: "success"
-    })    
+    });
 });
 
-router.route('/error').get(function(res, req, next){
-    try {
-        throw new Error('Broken');
+router.route('/error').get(function(req, res, next){
+    try{
+        throw new Error('BROKEN');
     } catch(err) {
         next(err);
     }
