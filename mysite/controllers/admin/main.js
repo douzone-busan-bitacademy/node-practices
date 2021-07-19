@@ -33,7 +33,7 @@ module.exports = {
                 welcome: req.body.welcome,
                 description: req.body.description
             }, url ? {
-                profile: url
+                profile: url.replace(/\\/gi, '/')
             } : null), {
                 where: {
                 }
