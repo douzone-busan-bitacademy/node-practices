@@ -41,7 +41,7 @@ module.exports = {
                 fs.unlinkSync(file.path);
 
                 await models.Gallery.create({
-                   url: url,
+                   url: url.replace(/\\/gi, '/'),
                    comment: req.body.comment || ''
                 });
             }
